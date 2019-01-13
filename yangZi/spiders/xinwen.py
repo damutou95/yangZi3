@@ -15,6 +15,6 @@ class XinwenSpider(scrapy.Spider):
         item['title'] = response.xpath('//*[@class="text-title"]/text()').extract_first()
         item['origin'] = response.xpath('//*[@class="text-time"]/text()').extract_first()
         item['content'] = response.xpath('string(//*[@class="text-text"]/p)').extract_first().strip()
-        with open('yangziwanbaoxinwen.docx','a') as f:
+        with open('yangziwanbaoxinwen.txt','a',encoding='utf-8') as f:
             f.write(item['title']+'\n'+item['origin']+'\n'+item['content'])
         yield item
